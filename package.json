@@ -2,7 +2,7 @@
   "name": "flickr-tag-view",
   "version": "1.0.0",
   "description": "Flickr tag viewer",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "prestart": "webpack",
     "start": "webpack-dev-server --port 8392",
