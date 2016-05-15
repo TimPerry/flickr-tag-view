@@ -1,0 +1,19 @@
+{
+  "name": "flickr-tag-view",
+  "version": "1.0.0",
+  "description": "Flickr tag viewer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimPerry/flickr-tag-view.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TimPerry/flickr-tag-view/issues"
+  },
+  "homepage": "https://github.com/TimPerry/flickr-tag-view#readme"
+}
