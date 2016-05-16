@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 var App = React.createClass({
     componentWillMount: function() {
-	this.props.fetchImages('test');
+	this.props.fetchImages('london');
     },
     render: function() {
 	const {handleClick, images, statusMessage} = this.props;
