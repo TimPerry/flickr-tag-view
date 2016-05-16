@@ -3,8 +3,10 @@
 
 .imageGrid__image {
     margin: 22px;
+    padding: 4px;
 }
 
 .imageGrid__image--selected {
     border: dotted 4px #101010;
+    padding: 0;
 }
