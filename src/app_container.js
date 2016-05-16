@@ -6,7 +6,7 @@ import App from './app';
 
 const mapStateToProps = (state) => {
     return {
-	name: state.name,
+	statusMessage: state.statusMessage,
 	images: state.images
     };
 };

@@ -1,4 +1,6 @@
 .imageGrid {
+    display: block;
+    margin-top: 22px;
 }
 
 .imageGrid__image {

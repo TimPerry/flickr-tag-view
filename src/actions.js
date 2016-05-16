@@ -19,7 +19,7 @@ const receiveImages = (tags, images) => {
 
 const receiveImagesError = (tags, err) => {
     return {
-	type: "FETCHED_IMAGES",
+	type: "FETCHED_IMAGES_ERROR",
 	payload: err,
 	error: true,
 	meta: {
@@ -49,6 +49,6 @@ export const fetchImages = (tags) => {
 export const selectImage = (evt) => {
     return {
 	type: 'IMAGE_SELECTED',
-	payload: parseInt(evt.target.dataset.index)
+	payload: evt.target.dataset.id
     };
 };
