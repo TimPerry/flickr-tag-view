@@ -6,15 +6,16 @@ var App = React.createClass({
 	this.props.fetchImages('test');
     },
     render: function() {
+	const {handleClick, images} = this.props;
 	return (
 		<main>
-		<section class="imageGrid">
-		{this.props.images.map(function(image, index) {
+		<section class="imageGrid" onClick={handleClick}>
+		{images.map(function(image, index) {
 		    const className = classnames({
 			"imageGrid__image": true,
-			"iamgeGrid__image--selected": image.selected
+			"imageGrid__image--selected": image.selected
 		    });
-		    return <img key={index} src={image.imageURL} className="imageGrid__image"/>
+		    return <img key={index} src={image.imageURL} className={className} data-index={index}/>
 		})}
      	    </section>
 		</main>

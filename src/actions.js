@@ -45,3 +45,10 @@ export const fetchImages = (tags) => {
 	
     };
 };
+
+export const selectImage = (evt) => {
+    return {
+	type: 'IMAGE_SELECTED',
+	payload: parseInt(evt.target.dataset.index)
+    };
+};

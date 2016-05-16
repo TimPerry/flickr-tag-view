@@ -12,6 +12,18 @@ const reducer = (state = initialState, action) => {
                 };
             })
         };
+    } else if (action.type === "IMAGE_SELECTED") {
+	return {
+	    images: state.images.map(function(image, index) {
+		if (index === action.payload) {
+		    return {
+			imageURL: image.imageURL,
+			selected: !image.selected
+		    };
+		}
+		return image;
+	    })
+	};
     }
     return state;
 };
