@@ -1,0 +1,10 @@
+.imageGrid {
+}
+
+.imageGrid__image {
+    margin: 22px;
+}
+
+.imageGrid__image--selected {
+    border: dotted 4px #101010;
+}
