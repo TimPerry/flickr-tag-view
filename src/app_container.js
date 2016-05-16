@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchImages: (tags) => dispatch(fetchImages(tags))
+        fetchImages: bindActionCreators(fetchImages, dispatch)
     };
 };
 

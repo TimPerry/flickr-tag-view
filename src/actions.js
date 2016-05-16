@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import jsonp from 'jsonp';
 
 const fetchingImages = (tag) => {
     return {
@@ -14,13 +14,28 @@ const recieveImages = (tags, images) => {
     };
 };
 
+const recieveImagesError = (tags, err) => {
+    return {
+	type: "FETCHED_IMAGES",
+	payload: err,
+	error: true
+    };
+};
+
 export const fetchImages = (tags) => {
     return (dispatch) => {
 	dispatch(fetchingImages(tags));
-	return dispatch => {
-	    fetch(`http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=cb&tags=${tags}`)
-		.then(response => response.json())
-		.then(json => dispatch(receiveImages(tags, json)));
+	const opts = {
+	    param: 'jsoncallback'
 	};
+	const url = `http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=${tags}`;
+	jsonp(url, opts, function(err, data) {
+	    if(!err) {
+		dispatch(receiveImages(tags, json.items));
+	    } else {
+		dispatch(receiveImagesError(tags, err));
+	    }
+	});
+	
     };
 };
