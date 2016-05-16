@@ -5,7 +5,15 @@ var App = React.createClass({
 	this.props.fetchImages('test');
     },
     render: function() {
-	return <div>Hello {this.props.name}</div>;
+	return (
+		<main>
+		<section>
+		{this.props.images.map(function(image, index) {
+		    return <img key={index} src={image.imageURL}/>
+		})}
+     	    </section>
+		</main>
+	);
     }
 });
 

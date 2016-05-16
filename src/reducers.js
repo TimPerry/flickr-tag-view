@@ -1,5 +1,5 @@
 const initialState = {
-    name: 'some name'
+    images: []
 };
 
 const reducer = (state = initialState, action) => {
