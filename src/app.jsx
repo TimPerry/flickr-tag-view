@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 var App = React.createClass({
     componentWillMount: function() {
@@ -9,6 +10,10 @@ var App = React.createClass({
 		<main>
 		<section class="imageGrid">
 		{this.props.images.map(function(image, index) {
+		    const className = classnames({
+			"imageGrid__image": true,
+			"iamgeGrid__image--selected": image.selected
+		    });
 		    return <img key={index} src={image.imageURL} className="imageGrid__image"/>
 		})}
      	    </section>
