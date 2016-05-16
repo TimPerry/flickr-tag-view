@@ -7,18 +7,24 @@ const fetchingImages = (tag) => {
     };
 };
 
-const recieveImages = (tags, images) => {
+const receiveImages = (tags, images) => {
     return {
 	type: "FETCHED_IMAGES",
-	payload: images
+	payload: images,
+	meta: {
+	    tags
+	}
     };
 };
 
-const recieveImagesError = (tags, err) => {
+const receiveImagesError = (tags, err) => {
     return {
 	type: "FETCHED_IMAGES",
 	payload: err,
-	error: true
+	error: true,
+	meta: {
+	    tags
+	}
     };
 };
 
@@ -31,7 +37,7 @@ export const fetchImages = (tags) => {
 	const url = `http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=${tags}`;
 	jsonp(url, opts, function(err, data) {
 	    if(!err) {
-		dispatch(receiveImages(tags, json.items));
+		dispatch(receiveImages(tags, data.items));
 	    } else {
 		dispatch(receiveImagesError(tags, err));
 	    }
