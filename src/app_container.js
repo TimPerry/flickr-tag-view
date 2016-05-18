@@ -1,7 +1,7 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {fetchImages, selectImage} from './actions';
 
+import {fetchImages, toggleImageSelected} from './actions';
 import App from './app';
 
 const mapStateToProps = (state) => {
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchImages: bindActionCreators(fetchImages, dispatch),
-    handleClick: bindActionCreators(selectImage, dispatch)
+    handleClick: bindActionCreators(toggleImageSelected, dispatch)
   };
 };
 

@@ -1,13 +1,13 @@
 import jsonp from 'jsonp';
 
-const fetchingImages = (tag) => {
+const fetchImagesPending = (tag) => {
   return {
 	  type: 'FETCH_IMAGES_PENDING',
 	  payload: tag
   };
 };
 
-const receiveImages = (tags, images) => {
+const fetchImagesSuccess = (tags, images) => {
   return {
 	  type: "FETCH_IMAGES_SUCCESS",
 	  payload: images,
@@ -17,7 +17,7 @@ const receiveImages = (tags, images) => {
   };
 };
 
-const receiveImagesError = (tags, err) => {
+const fetchImagesError = (tags, err) => {
   return {
 	  type: "FETCH_IMAGES_ERROR",
 	  payload: err,
@@ -30,23 +30,23 @@ const receiveImagesError = (tags, err) => {
 
 export const fetchImages = (tags) => {
   return (dispatch) => {
-	  dispatch(fetchingImages(tags));
+	  dispatch(fetchImagesPending(tags));
 	  const opts = {
 	    param: 'jsoncallback'
 	  };
 	  const url = `http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=${tags}`;
 	  jsonp(url, opts, function(err, data) {
 	    if(!err) {
-		    dispatch(receiveImages(tags, data.items));
+		    dispatch(fetchImagesSuccess(tags, data.items));
 	    } else {
-		    dispatch(receiveImagesError(tags, err));
+		    dispatch(fetchImagesError(tags, err));
 	    }
 	  });
 	  
   };
 };
 
-export const selectImage = (evt) => {
+export const toggleImageSelected = (evt) => {
   return {
 	  type: 'TOGGLE_IMAGE_SELECTED',
 	  payload: evt.target.dataset.id
