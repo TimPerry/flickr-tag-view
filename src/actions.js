@@ -1,54 +1,54 @@
 import jsonp from 'jsonp';
 
 const fetchingImages = (tag) => {
-    return {
-	type: 'FETCHING_IMAGES',
-	payload: tag
-    };
+  return {
+	  type: 'FETCHING_IMAGES',
+	  payload: tag
+  };
 };
 
 const receiveImages = (tags, images) => {
-    return {
-	type: "FETCHED_IMAGES",
-	payload: images,
-	meta: {
+  return {
+	  type: "FETCHED_IMAGES",
+	  payload: images,
+	  meta: {
 	    tags
-	}
-    };
+	  }
+  };
 };
 
 const receiveImagesError = (tags, err) => {
-    return {
-	type: "FETCHED_IMAGES_ERROR",
-	payload: err,
-	error: true,
-	meta: {
+  return {
+	  type: "FETCHED_IMAGES_ERROR",
+	  payload: err,
+	  error: true,
+	  meta: {
 	    tags
-	}
-    };
+	  }
+  };
 };
 
 export const fetchImages = (tags) => {
-    return (dispatch) => {
-	dispatch(fetchingImages(tags));
-	const opts = {
+  return (dispatch) => {
+	  dispatch(fetchingImages(tags));
+	  const opts = {
 	    param: 'jsoncallback'
-	};
-	const url = `http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=${tags}`;
-	jsonp(url, opts, function(err, data) {
+	  };
+	  const url = `http://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=${tags}`;
+	  jsonp(url, opts, function(err, data) {
 	    if(!err) {
-		dispatch(receiveImages(tags, data.items));
+		    dispatch(receiveImages(tags, data.items));
 	    } else {
-		dispatch(receiveImagesError(tags, err));
+		    dispatch(receiveImagesError(tags, err));
 	    }
-	});
-	
-    };
+	  });
+	  
+  };
 };
 
 export const selectImage = (evt) => {
-    return {
-	type: 'IMAGE_SELECTED',
-	payload: evt.target.dataset.id
-    };
+  return {
+	  type: 'IMAGE_SELECTED',
+	  payload: evt.target.dataset.id
+  };
 };
