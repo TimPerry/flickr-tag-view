@@ -1,4 +1,4 @@
-import {toggleImageSelected} from '../src/actions.js';
+import {toggleImageSelected, fetchImages} from '../src/actions.js';
 
 describe('Actions', () => {
 
@@ -14,6 +14,18 @@ describe('Actions', () => {
 	    const result = toggleImageSelected(evt);
 	    expect(result.payload).toEqual('someid');
 	});
+    });
+
+    describe('Fetch images', () => {
+
+	it('Sends a pending action', () => {
+	    const dispatchSpy = jasmine.createSpy();
+	    fetchImages('sometag')(dispatchSpy);
+	    const firstCall = dispatchSpy.calls.first().args[0];
+	    expect(firstCall.type).toEqual('FETCH_IMAGES_PENDING');
+	    expect(firstCall.payload).toEqual('sometag');
+	});
+	
     });
     
 });
