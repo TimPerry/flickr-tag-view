@@ -12,3 +12,9 @@
     border: dotted 4px #101010;
     padding: 0;
 }
+
+.statusMessage {
+    display: block;
+    padding: 12px;
+    background: #ebebeb;
+}
