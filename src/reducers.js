@@ -49,6 +49,11 @@ const actionHandlers = {
 	  selectedImageIds: {
       $apply: addItemOrRemoveIfAlreadyExists(action.payload)
     }
+  }),
+  "SET_SELECTED_IMAGE_IDS": (state, action) => update(state, {
+	  selectedImageIds: {
+      $set: action.payload
+    }
   })
 };
 

@@ -31,6 +31,7 @@
     "babel-preset-react": "^6.5.0",
     "classnames": "^2.2.5",
     "fetch": "^1.0.1",
+    "js-cookie": "^2.1.1",
     "jsonp": "^0.2.0",
     "redux-devtools": "^3.3.1",
     "webpack": "^1.13.0",
