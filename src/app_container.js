@@ -7,7 +7,8 @@ import App from './app';
 const mapStateToProps = (state) => {
   return {
 	  statusMessage: state.statusMessage,
-	  images: state.images
+	  images: state.images,
+    selectedImageIds: state.selectedImageIds
   };
 };
 

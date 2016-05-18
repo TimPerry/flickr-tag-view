@@ -6,7 +6,7 @@ var App = React.createClass({
 	      this.props.fetchImages('london');
     },
     render: function() {
-	      const {handleClick, images, statusMessage} = this.props;
+	      const {handleClick, images, statusMessage, selectedImageIds} = this.props;
 	      return (
 	          <main>
 	          <span>{statusMessage}</span>
@@ -14,7 +14,7 @@ var App = React.createClass({
 	          {images.map(function(image, index) {
 		            const className = classnames({
 		                "imageGrid__image": true,
-		                "imageGrid__image--selected": image.selected
+		                "imageGrid__image--selected": (selectedImageIds.indexOf(image.id) !== -1)
 		            });
 		            return <img key={index} src={image.imageURL} className={className} data-id={image.id}/>
 	          })}

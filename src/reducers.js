@@ -2,19 +2,34 @@ import update from 'react-addons-update';
 
 const initialState = {
   statusMessage: '',
-  images: []
+  images: [],
+  selectedImageIds: []
+};
+
+const buildImage = (item) => {
+	return {
+    imageURL: item.media.m,
+    selected: false,
+		id: item.link
+	};
+};
+
+const addItemOrRemoveIfAlreadyExists = (item) => (items) => {
+  const index = items.indexOf(item);
+  if (index !== -1) {
+    return update(items, {
+      $splice: [[index, 1]]
+    });
+  }
+  return update(items, {
+    $push: [item]
+  });
 };
 
 const actionHandlers = {
   "FETCH_IMAGES_SUCCESS": (state, action) => update(state, {
     images: {
-	    $set: action.payload.map(function(item) {
-		    return {
-          imageURL: item.media.m,
-          selected: false,
-		      id: item.link
-		    };
-      })
+	    $set: action.payload.map(buildImage)
 	  },
 	  statusMessage: {
 	    $set: `Show results for tags: ${action.meta.tags}`
@@ -30,15 +45,10 @@ const actionHandlers = {
 	    $set: `Searching for images tagged: ${action.payload}`
 	  }
   }),
-  "TOGGLE_IMAGE_SELECTED": (state, action) =>  update(state, {
-	  images: {
-	    $set: state.images.map(function(image) {
-		    if (action.payload === image.id) {
-		      image.selected = !image.selected;
-		    }
-		    return image;
-	    })
-	  }
+  "TOGGLE_IMAGE_SELECTED": (state, action) => update(state, {
+	  selectedImageIds: {
+      $apply: addItemOrRemoveIfAlreadyExists(action.payload)
+    }
   })
 };
 
