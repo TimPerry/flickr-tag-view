@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const actionHandlers = {
-  "FETCHED_IMAGES": (state, action) => update(state, {
+  "FETCH_IMAGES_SUCCESS": (state, action) => update(state, {
     images: {
 	    $set: action.payload.map(function(item) {
 		    return {
@@ -20,7 +20,17 @@ const actionHandlers = {
 	    $set: `Show results for tags: ${action.meta.tags}`
 	  }
   }),
-  "IMAGE_SELECTED": (state, action) =>  update(state, {
+  "FETCHED_IMAGES_ERROR": (state, action) => update(state, {
+	  statusMessage: {
+	    $set: `Failed to load images tagged: ${action.meta.tags}`
+	  }
+  }),
+  "FETCH_IMAGES_PENDING": (state, action) => update(state, {
+	  statusMessage: {
+	    $set: `Searching for images tagged: ${action.payload}`
+	  }
+  }),
+  "TOGGLE_IMAGE_SELECTED": (state, action) =>  update(state, {
 	  images: {
 	    $set: state.images.map(function(image) {
 		    if (action.payload === image.id) {
@@ -28,16 +38,6 @@ const actionHandlers = {
 		    }
 		    return image;
 	    })
-	  }
-  }),
-  "FETCHED_IMAGES_ERROR": (state, action) => update(state, {
-	  statusMessage: {
-	    $set: `Failed to load images tagged: ${action.meta.tags}`
-	  }
-  }),
-  "FETCHING_IMAGES": (state, action) => update(state, {
-	  statusMessage: {
-	    $set: `Searching for images tagged: ${action.payload}`
 	  }
   })
 };

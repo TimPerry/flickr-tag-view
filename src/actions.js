@@ -2,14 +2,14 @@ import jsonp from 'jsonp';
 
 const fetchingImages = (tag) => {
   return {
-	  type: 'FETCHING_IMAGES',
+	  type: 'FETCH_IMAGES_PENDING',
 	  payload: tag
   };
 };
 
 const receiveImages = (tags, images) => {
   return {
-	  type: "FETCHED_IMAGES",
+	  type: "FETCH_IMAGES_SUCCESS",
 	  payload: images,
 	  meta: {
 	    tags
@@ -19,7 +19,7 @@ const receiveImages = (tags, images) => {
 
 const receiveImagesError = (tags, err) => {
   return {
-	  type: "FETCHED_IMAGES_ERROR",
+	  type: "FETCH_IMAGES_ERROR",
 	  payload: err,
 	  error: true,
 	  meta: {
@@ -48,7 +48,7 @@ export const fetchImages = (tags) => {
 
 export const selectImage = (evt) => {
   return {
-	  type: 'IMAGE_SELECTED',
+	  type: 'TOGGLE_IMAGE_SELECTED',
 	  payload: evt.target.dataset.id
   };
 };
