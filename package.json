@@ -12,6 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/TimPerry/flickr-tag-view.git"
   },
+  "license": "UNLICENSED",
   "author": "tim.r.perry@gmail.com",
   "bugs": {
     "url": "https://github.com/TimPerry/flickr-tag-view/issues"
