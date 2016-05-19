@@ -2,13 +2,12 @@ import React from 'react';
 import classnames from 'classnames';
 
 import normalise from 'normalize.css';
-
-import imageTagViewStyles from '../styles/imageTagView.css';
-import imageGridView from '../styles/imageGrid.css';
+import styles from '../styles/imageTagView.css';
 
 import StatusMessage from './statusMessage';
+import ImageGrid from './imageGrid';
 
-var App = React.createClass({
+export default React.createClass({
     componentWillMount: function() {
 	this.props.fetchImages('london');
     },
@@ -17,18 +16,8 @@ var App = React.createClass({
 	return (
 	    <main class="imageTagView">
 	    <StatusMessage message={statusMessage}/>
-	    <section className="imageGrid imageTagView__imageGrid" onClick={handleClick}>
-	    {images.map(function(image, index) {
-		const className = classnames({
-		    "imageGrid__image": true,
-		    "imageGrid__image--selected": (selectedImageIds.indexOf(image.id) !== -1)
-		});
-		return <img key={index} src={image.imageURL} className={className} data-id={image.id}/>
-	    })}
-     	    </section>
+	    <ImageGrid images={images} selectedImageIds={selectedImageIds} handleClick={handleClick}/>
 	    </main>
 	);
     }
 });
-
-export default App;
