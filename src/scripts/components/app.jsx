@@ -15,8 +15,8 @@ export default React.createClass({
 	const {handleClick, images, statusMessage, selectedImageIds} = this.props;
 	return (
 	    <main class="imageTagView">
-	    <StatusMessage message={statusMessage}/>
-	    <ImageGrid images={images} selectedImageIds={selectedImageIds} handleClick={handleClick}/>
+	        <StatusMessage message={statusMessage}/>
+    	        <ImageGrid images={images} selectedImageIds={selectedImageIds} handleClick={handleClick}/>
 	    </main>
 	);
     }

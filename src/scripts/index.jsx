@@ -7,6 +7,6 @@ import AppContainer from './containers/app';
 
 render((
     <Provider store={store}>
-	     <AppContainer/>
+        <AppContainer/>
     </Provider>
 ), document.getElementById('app'));

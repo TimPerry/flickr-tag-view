@@ -5,23 +5,23 @@ import {fetchImages, toggleImageSelected} from '../actions';
 import App from '../components/app';
 
 const mapStateToProps = (state) => {
-  return {
-	  statusMessage: state.statusMessage,
-	  images: state.images,
-    selectedImageIds: state.selectedImageIds
-  };
+    return {
+	statusMessage: state.statusMessage,
+	images: state.images,
+	selectedImageIds: state.selectedImageIds
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchImages: bindActionCreators(fetchImages, dispatch),
-    handleClick: bindActionCreators(toggleImageSelected, dispatch)
-  };
+    return {
+	fetchImages: bindActionCreators(fetchImages, dispatch),
+	handleClick: bindActionCreators(toggleImageSelected, dispatch)
+    };
 };
 
 const AppContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(App);
 
 export default AppContainer;
