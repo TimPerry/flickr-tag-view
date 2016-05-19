@@ -1,6 +1,5 @@
 .imageGrid {
     display: block;
-    margin-top: 22px;
 }
 
 .imageGrid__image {
@@ -11,10 +10,4 @@
 .imageGrid__image--selected {
     border: dotted 4px #101010;
     padding: 0;
-}
-
-.statusMessage {
-    display: block;
-    padding: 12px;
-    background: #ebebeb;
 }

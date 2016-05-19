@@ -2,7 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 
 import normalise from 'normalize.css';
-import styles from '../styles/app.css';
+
+import imageTagViewStyles from '../styles/imageTagView.css';
+import imageGridView from '../styles/imageGrid.css';
+import statusMessageStyles from '../styles/statusMessage.css';
 
 var App = React.createClass({
     componentWillMount: function() {
@@ -11,9 +14,9 @@ var App = React.createClass({
     render: function() {
 	const {handleClick, images, statusMessage, selectedImageIds} = this.props;
 	return (
-	    <main>
+	    <main class="imageTagView">
 	    <span className="statusMessage">{statusMessage}</span>
-	    <section className="imageGrid" onClick={handleClick}>
+	    <section className="imageGrid imageTagView__imageGrid" onClick={handleClick}>
 	    {images.map(function(image, index) {
 		const className = classnames({
 		    "imageGrid__image": true,
