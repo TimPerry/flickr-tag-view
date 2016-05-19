@@ -1,6 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 
+import normalise from 'normalize.css';
+import styles from '../styles/app.css';
+
 var App = React.createClass({
     componentWillMount: function() {
 	this.props.fetchImages('london');
