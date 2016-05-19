@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 import normalise from 'normalize.css';
-import styles from '../styles/imageTagView.css';
+import styles from '../../styles/imageTagView.css';
 
 import StatusMessage from './statusMessage';
 import ImageGrid from './imageGrid';

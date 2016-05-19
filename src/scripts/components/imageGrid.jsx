@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import styles from '../styles/imageGrid.css';
+import styles from '../../styles/imageGrid.css';
 
 export default React.createClass({
     render: function() {

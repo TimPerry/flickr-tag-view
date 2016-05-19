@@ -1,8 +1,8 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {fetchImages, toggleImageSelected} from './actions';
-import App from './app';
+import {fetchImages, toggleImageSelected} from '../actions';
+import App from '../components/app';
 
 const mapStateToProps = (state) => {
   return {

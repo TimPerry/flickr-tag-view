@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/statusMessage.css';
+import styles from '../../styles/statusMessage.css';
 
 export default React.createClass({
     render: function() {

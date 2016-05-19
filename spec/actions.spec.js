@@ -1,4 +1,4 @@
-import {toggleImageSelected, fetchImages} from '../src/actions.js';
+import {toggleImageSelected, fetchImages} from '../src/scripts/actions';
 
 describe('Actions', () => {
 
