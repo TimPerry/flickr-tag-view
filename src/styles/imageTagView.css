@@ -1,5 +1,3 @@
-.imageTagView {
-    &__imageGrid {
-	margin-top: 22px;
-    }
+.imageTagView__imageGrid {
+    margin-top: 22px;
 }
