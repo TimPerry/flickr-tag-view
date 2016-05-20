@@ -24,6 +24,10 @@ I have also included a docker-compose file. If you have docker installed then ru
 
 To run the unit tests run `npm test` you will need to make sure you have run `npm install` first and you are in the directory that you cloned the project into.
 
+### Docker
+
+If you are using the project via docker then you can simply run this command `docker-compose run web npm test`
+
 ## About
 
 This project uses Redux, React and webpack to create a grid view of images requested from `http://api.flickr.com/services/feeds/photos_public.gne`. To request this data we use the `jsonp` package as the endpoint does not support CORS. We then use unidirectional dataflow via redux. So actions are dispatched via action creators. Then act on these actions in our reducers, change the state, this is then sent back to the components that care about whatever was change (mapped in the containers) and the app is updated.
