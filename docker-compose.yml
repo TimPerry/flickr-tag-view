@@ -1,0 +1,6 @@
+web:
+  image: node:4-onbuild
+  volumes:
+    - "./:/usr/src/app"
+  ports:
+    - "8392:8392"

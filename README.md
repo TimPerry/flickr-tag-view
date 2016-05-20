@@ -8,9 +8,17 @@ First you will want to grab node `https://nodejs.org/en/`. The project should wo
 
 Check out this project `git clone https://github.com/TimPerry/flickr-tag-view`, move into repo `cd flickr-tag-view` then run `npm install`
 
+### Docker
+
+If you plan on running this with docker then you will want to install it from here `https://docs.docker.com/engine/installation/`.
+
 ## Usage
 
 To get started run `npm start` wherever you cloned the repo. You can then visit `http://localhost:8392/` to see the project in your browser.
+
+### Docker
+
+I have also included a docker-compose file. If you have docker installed then run `docker-compose up` wherever you cloned the repo.
 
 ## Tests
 
